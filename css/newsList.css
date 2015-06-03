@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face
+{
+	font-family:'myfont';
+	src:url(../font/STHUPO.TTF);
+}
+
+.newsList
+{
+	width:100%;
+	height:auto;
+	background-color:#3D3B3C;
+	padding-left:2%;
+	padding-top:5%;
+	padding-bottom:5%;
+	overflow:scroll;
+}
+
+.container
+{
+	width:86%;
+	height:500px;
+	padding:5%;
+	border-style:solid;
+	border-color:#848583;
+	border-width:10px;
+	border-topradius:10px;
+	border-radius:10px;
+	border-top-style:none;
+	border-bottom-style:none;
+}
+
+.title
+{
+	float:left;
+	color:#848583;
+	font-size:30px;
+	text-decoration:none;
+	font-family:'myfont';
+}
+
+.date
+{
+	float:right;
+	color:#848583;
+	font-size:30px;
+	text-decoration:none;
+	font-family:'myfont';
+}
+
+.item
+{
+	alignment-adjust:central;
+}
+
+.page
+{
+	position:relative;
+	top:15%;
+	float:left;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.pageNumber
+{
+	color:#848583;
+	font-size:30px;
+	text-decoration:none;
+	font-family:'myfont';
+}
+
+.border1
+{
+	position:fixed;
+	float:left;
+}
+
+.border2
+{
+	float:right;
+}
