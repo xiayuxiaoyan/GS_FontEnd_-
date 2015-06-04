@@ -1,0 +1,53 @@
+.body{
+	width:100%;
+	height:100%;
+	display:block;
+	
+}
+.personself{
+	width:50%;
+	height:100%;
+	background-color:#ded6c0;
+	outline-style:solid;
+	outline-color:313131;
+	outline-width:10px;
+	margin-left:25%;
+	margin-top:5%;
+}
+.message{
+	width:100%;
+	height:480px;
+}
+.img{
+	width:40%;
+	height:440px;
+	float:left;
+	margin-left:5%;
+	margin-top:40px;
+}
+.part1{
+	width:45%;
+	height:440px;
+	float:right;
+	margin-top:40px;
+	text-align:left;
+	font-size:20px;
+	font-family:"华文琥珀";
+	color:RGB(88,84,80);}
+.name{
+	width:200px;
+	height:70px;
+	font-size:300%;
+	font-family:"华文琥珀"；
+	color:RGB(88,84,80);
+}
+.part2{
+	width:400px;
+	height:400px;
+	margin-left:5%;
+	font-size:20px;
+	font-family:"华文琥珀";
+	color:RGB(88,84,80)
+}
+	
+	
