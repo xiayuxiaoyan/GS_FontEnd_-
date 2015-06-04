@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>高思实验室首页</title>
+<link href="css/MP_addPerson.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-2.1.4.min.js"></script>
+
+</head>
+
+<body>
+   <form action="useradd" method="post" >
+    <div class="formBlock">           
+    	 <label for="username">用户名:</label>
+    	 <input name="username" id="username" placeholder="请输入登陆账号"  class="formElement" required>
+     </div>
+     
+     <div class="formBlock">
+    	 <label for="password">密码:</label>
+         <input name="password"  id="password" type="password" placeholder="请输入登陆密码" class="formElement" required>
+     </div>
+     
+     <div class="formBlock">
+    	 <label for="password2">确认密码:</label>
+         <input name="password2" id="password2" placeholder="请输入登陆密码" type="password" class="formElement" required>
+     </div>
+     <div class="formBlock">
+    	 <label for="group">分组:</label>
+         <select name="gourp" id="gourp" >
+            <option value="VALB"> VALB</option>
+            <option value="FEP">FEP</option>
+            <option value="XNN">XNN</option>
+            <option value="ACA">ACA</option>
+            <option value="temp">临时</option>
+         </select>
+       
+     </div>
+     <div class="formBlock">
+    	<label></label><button  type="submit" class="submit">确认</button>
+     	<button type="button" class="reset">重置</button>
+     </div>
+   </form>
+   <script type="text/javascript">
+       (function(){
+		   $('.reset').click(function(){
+			   $('input').val("");
+			   });
+		   })();
+   </script>
+</body>
+</html>
