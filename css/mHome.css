@@ -1,0 +1,170 @@
+body{
+	width: 960px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0px;
+}
+*{
+	margin: 0 ;
+	padding: 0px;
+}
+ ul{
+	list-style: none;
+}
+.tab li{
+	float: left;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.logo{
+	width: 960px;
+	height: 150px;
+	margin-top: 60px;
+	background-image: url(../images/u0.png);
+}
+.time{
+	width: 100%;
+	height: 27px;	
+}
+.time span{
+	padding-top: 10px;
+	line-height: 35px;
+}
+.welcome{
+	height: 30px;
+}
+.welcome a{
+	background-color: rgb(233,236,239);
+/*	border-top-left-radius:0.2em;
+	border-top-right-radius:0.2em;*/
+	border-radius: 0.2em ;
+/*	border: 1px solid rgb(102,183,224);*/
+}
+.welcome span:first-child{
+	padding-left: 670px;
+}
+.welcome span:first-child+span{
+	padding-left: 70px;	
+}
+.welcome span:first-child+span+span{
+	padding-left: 10px;	
+}
+
+.tab{
+	margin-left: 30px;
+	margin-bottom: 2px;
+	height: 35px;
+}
+.tab li{
+	width: 100px;
+	height: 35px;
+}
+.tab a{
+	width: 100px;
+	height: 25px;
+	border-top-left-radius:1em;
+	border-top-right-radius:1em;
+	background-color: rgb(220,220,220);
+	border: 1px solid;
+	border-color: rgb(200,200,200);
+	display: block;
+	text-align: center;
+	padding-top: 10px;
+}
+.tab a:hover{
+	background-color: rgb(240,240,240);
+}
+hr{
+	border:1px solid;
+	color: rgb(100,100,100);
+}
+.content{
+	width: 960px;
+	height: 600px;
+	margin-top: 10px;
+	position: relative;
+}
+.menuList{
+	width: 160px;
+	height: 180px;
+	position: absolute;
+	border-top-left-radius:0.5em;
+	border-top-right-radius:0.5em;
+	border:1px solid;
+	top: 50px;
+	left: 30px;
+	background-color: rgb(255,255,255);
+}
+#managerPerson{
+	z-index: 100;
+}
+#managerNews,#managerNewPerson,#managerAcount,#managerSysterm{
+	z-index: -1000;
+}
+.menuList  ul{
+	margin-bottom: 10px;
+}
+.menuList li a{
+	height: 20px;
+	width: 80px;
+	margin: 0 auto;
+	text-align: center;
+	border-bottom: 1px dotted;
+	padding-top: 5px;
+	margin-top: 5px;
+	display: block;
+}
+.menuList li:first-child+li a:link{
+	background-color: rgb(102,183,224);
+}
+.menuList li a:hover{
+	background-color: rgb(242,242,242);
+}
+.menuList li a:focus{
+	background-color: rgb(102,183,224);
+}
+.menuList li a:active{
+	background-color: rgb(102,183,224);
+}
+
+
+.menuList li:first-child{
+	width: 160px;
+	height: 30px;
+	border-bottom: 1px solid;
+	text-align: center;
+	padding-top: 20px;
+	background-color: rgb(242,242,242);
+	border-top-left-radius:0.5em;
+	border-top-right-radius:0.5em;
+}
+
+iframe{
+	width: 760px;
+	height: 100%;
+	margin-left: 196px;
+	border:0;
+	background-color: rgb(200,200,200);
+}
+.footer{
+	width: 100%;
+	height: 140px;
+	margin-top: 10px;
+	border-top: 4px solid rgb(102, 183, 224);
+}
+.footerContent{
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 45px;
+}
+.footerContent p:first-child,.footerContent p:first-child+p{
+	font-family:'华文楷体 Regular', '华文楷体';
+	font-weight:400;
+}
+.footerContent p:first-child+p+p{
+	font-family:'华文楷体 Bold', '华文楷体';
+	font-weight:700;
+}
