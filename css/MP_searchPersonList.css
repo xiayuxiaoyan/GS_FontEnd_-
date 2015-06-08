@@ -8,4 +8,6 @@ body{
     background-color: #4dffd3;
     width:760px;
     height:600px;
+    margin:0 auto;
+    padding-left: 40px;
 }
