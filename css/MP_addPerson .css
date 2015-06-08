@@ -1,0 +1,75 @@
+
+html,body
+   {
+	   width:760px;
+	   height:600px;  
+   }
+   *
+   {
+	   font-size:18px;
+   }
+   form
+   {
+	   width:50%;
+	   margin:100px auto; 
+   }
+   .formBlock
+   {
+	   width:100%;
+	   margin: 0 auto 15px auto;
+   }
+   label
+   {
+	   padding:6px 0;
+	   height:37px;
+	   box-sizing:border-box;
+	   width:33%;
+	   text-align:left;
+	   float:left;
+	   display:inline-block;
+   }
+   .formElement
+   {
+	   padding:6px 12px;
+	   height:37px;
+	   box-sizing:border-box;
+	   width:66%;
+	   border-radius:3px;
+	   color:#555;
+	   box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	   background-color:#fff;
+	   border:1px solid #ccc;
+	   -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	   box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	   -webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; 			      
+	    -o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	   transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+   }
+   .formElement:focus
+   {
+	   border-color:#66afe9;
+	   outline:0;
+	   -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	   box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+   }
+   input::-webkit-input-placeholder
+   {
+	   color:#999;
+	   font-size:15px;
+   }
+   
+   button{
+	 
+	width:60px;
+	border:1px solid #357ebd;
+	cursor:pointer;
+	background-color: #428bca;
+    color:#fff;
+	padding:5px 10px;
+	border-radius:3px;
+   -moz-border-radius:3px; 
+}
+   .submit
+   {
+	  margin-right:100px;
+   }
