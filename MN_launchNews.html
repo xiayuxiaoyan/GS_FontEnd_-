@@ -3,6 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>高思实验室首页</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jHtmlArea-0.8.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/textEditor/jHtmlArea.css" />
     <link  rel="stylesheet" type="text/css" href="MN_launchNews.css">
     <div>
         <h3>&nbsp所属分类： &nbsp&nbsp &nbsp&nbsp<select style="width: 200px;font-size:18px">
@@ -35,7 +38,22 @@
         <button style="background-color: #FFFFFF;font-size: large">取消</button>
     </div>
 
+  <script type="text/javascript"> $('textarea').htmlarea({
+   toolbar: [
+        "bold", "italic", "underline",
+        "|",
+        "h1", "h2", "h3", "h4", "h5", "h6",
+        "|",
+        "link", "unlink",
+	
+		"|","indent","outdent",
+		"|","justifyleft","justifycenter","justifyright",
+		"|","forecolor"
+		 
+    ]
+});
 
+</script>
 
 
 
