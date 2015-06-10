@@ -3,39 +3,70 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>高思实验室首页</title>
-    <link  rel="stylesheet" type="text/css" href="MN_launchNews.css">
+    <script src="js/jquery-2.1.4.min.js"></script>
+	<script src="ckeditor/ckeditor.js"></script>
+	<script src="ckeditor/adapters/jquery.js"></script>
+    
+    <script src="js/jHtmlArea-0.8.min.js"></script>
+    <link href="css/textEditor/jHtmlArea.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jHtmlArea.ColorPickerMenu-0.8.min.js"></script>
+    <link href="css/textEditor/jHtmlArea.ColorPickerMenu.css" rel="stylesheet" type="text/css"/>
+    <link  rel="stylesheet" type="text/css" href="MN_launchNews.css"/>
     <div>
-        <h3>&nbsp所属分类： &nbsp&nbsp &nbsp&nbsp<select style="width: 200px;font-size:18px">
+    <form action="" method="post">
+        <h3>&nbsp所属分类： &nbsp&nbsp &nbsp&nbsp
+        <select style="width: 200px;font-size:18px" name="catagory">
         <option>新闻</option>
         <option>公告</option>
     </select></h3>
 
     </div>
     <div>
-        <h3> &nbsp&nbsp标题:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input style="width: 300px;">
+        <h3> &nbsp&nbsp标题:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<input style="width: 300px;" name="title">
         </h3>
 
     </div>
     <div>
-        <h3> 页面关键字:&nbsp&nbsp&nbsp&nbsp&nbsp<input style="width: 300px;">
+        <h3> 页面关键字:&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input style="width: 300px;" name="keywords">
         </h3>
 
     </div>
 
-    <div>
-        <h3> &nbsp&nbsp设置:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox">是否启用
-        </h3>
-    </div>
     <div>
         <h3>内容:</h3>
-        <textarea cols="80" rows="20"></textarea>
+        <textarea cols="80" rows="20" name="content" id="content"></textarea>
     </div>
     <div>
-        <button style="background-color: #FFFFFF;font-size: large">发布</button>
-        <button style="background-color: #FFFFFF;font-size: large">取消</button>
+        <button style="background-color: #FFFFFF;font-size: large" class="submit" type="submit">发布</button>
+        <button style="background-color: #FFFFFF;font-size: large" class="reset" type="button">重置</button>
+        </form>
+        
     </div>
-
-
+ 
+  <script type="text/javascript"> 
+  //第一种文本编辑器
+   		//CKEDITOR.disableAutoInline = true;
+//
+//		$( document ).ready( function() {
+//			$( '#content' ).ckeditor(); // Use CKEDITOR.replace() if element is <textarea>.
+//			
+//		} );  
+//第二种文本编辑器 
+   $(function() {
+            $("#content").htmlarea({
+               toolbar: ["html", "|",
+                        "forecolor",  // <-- Add the "forecolor" Toolbar Button
+                        "|", "bold", "italic", "underline",
+						 "|", "p", "h1", "h2", "h3",
+						  "|", "link", "unlink"] // Overrides/Specifies the Toolbar buttons to show
+                });
+        });
+ // $(".reset").click(function(){alert($("textarea").val());});//测试使用
+ 
+ 
+</script>
 
 
 
