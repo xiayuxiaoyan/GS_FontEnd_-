@@ -1,13 +1,31 @@
 var $nav=$(".nav");
+var curMenu=$("#managerPerson");
+var curLink=$(curMenu).find("ul li:nth-child(2) a")[0];
 $nav.click(function(){
-	var menuId=$(this).attr("href");
+	var menuId=$(this).attr("id");
 	$(".menuList").css("z-index","-10000");
 	$(menuId).css("z-index","1000");
-
-	return false;
+    curMenu=$(menuId);
+	changeLink($(curMenu).find("li:nth-child(2) a")[0]);
+	
 });
-
-
+function changeLink(target)
+{
+	if(target==curLink) return;
+	$(curLink).css("background","#fff");
+	curLink=target;
+	$(curLink).css("background","rgb(102,183,224)");
+}
+$(".menuList li a").click(function(){
+	  changeLink(this);
+	});
+$(".menuList li a").hover(function(){
+	if(this==curLink) return;
+    $(this).css("background","rgb(242,242,242)");
+},function(){
+	if(this==curLink) return;
+    $(this).css("background","#fff");
+	});
 var today=new Date();       //时间
 var year=today.getFullYear();
 var month=today.getMonth();
