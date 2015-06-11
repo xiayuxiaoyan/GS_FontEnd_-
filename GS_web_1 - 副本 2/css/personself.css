@@ -1,0 +1,71 @@
+.personself{
+	width:33.3%;
+	height:1000px;
+	display:inline-block;
+	vertical-align: top;/*向上对齐*/
+	background-color:#ded6c0;	
+	position: relative;
+}
+.pContent{
+	width:50%;
+	height:80%;
+	outline-style:solid;
+	/*outline-color:white;*/
+	outline-width:10px;
+	margin-left:25%;
+	margin-top:5%;
+}
+.message{
+	width:100%;
+	height:350px;
+}
+.img{
+	width:200px;
+	height:250px;
+	margin-left: 4%;
+	margin-top:40px;
+	/*background-image: url("../images/photo.jpg");*/
+    float: left;
+     -webkit-box-shadow: 1px 1px 20px 1px #4e4e4e;
+}
+.part1{
+	width:45%;
+	height:300px;
+	float:left;
+	margin-top:40px;
+	padding-left: 60px;
+	text-align:left;
+	font-size:20px;
+	font-family:"华文琥珀";
+	color:RGB(88,84,80);}
+.part1 p{
+	line-height: 120%;
+}
+.part2 p{
+	line-height: 200%;
+}
+.userName{
+	width:200px;
+	height:70px;
+	font-size:300%;
+	font-family:"华文琥珀"；
+	color:RGB(88,84,80);
+}
+.part2{
+	width:400px;
+	height:400px;
+	margin-left:10%;
+	font-size:20px;
+	font-family:"华文琥珀";
+	color:RGB(88,84,80)
+}
+.pPhoto{
+	width: 160px;
+	height: 180px;
+	margin:auto;
+	margin-top: 25px;
+}
+	
+.project{
+	text-indent: 2em;
+}

@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face
+{
+	font-family:'myfont';
+	src:url(../font/STHUPO.TTF);
+}
+
+@font-face
+{
+	font-family:'myfont2';
+	src:url(../font/msyh.ttf);
+}
+
+.newsContent
+{
+	width:33.3%;
+	height:800px;
+	display: inline-block;
+    vertical-align: top;/*向上对齐*/
+	background-color:#3D3B3C;
+/* 	padding-left:2%; */
+	padding-top:2%;
+	/* padding-bottom:5%; */
+	position: relative;
+}
+
+
+.newscontainer
+{
+	width:86%;
+	background-color:#3D3B3C;
+	padding:5%;
+}
+
+.article
+{
+	color:#FEFCFC;
+	font-size:18px;
+	font-family:'myfont2';
+	white-space:pre-wrap;
+	word-wrap:break-word;
+}
+
+.ncDate
+{
+	text-align:center;
+	color:#FEFCFC;
+	font-size:18px;
+	font-family:'myfont2';
+}
+
+.content
+{
+	width:auto;
+	padding:2%;
+}
+
+.newsName
+{
+	color:#848583;
+	font-size:30px;
+	font-family:'myfont';
+	text-align:center;
+}
