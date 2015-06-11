@@ -117,19 +117,10 @@ hr{
 	margin-top: 5px;
 	display: block;
 }
-.menuList li:first-child+li a:link{
+.menuList ul li:nth-child(2) a
+{
 	background-color: rgb(102,183,224);
 }
-.menuList li a:hover{
-	background-color: rgb(242,242,242);
-}
-.menuList li a:focus{
-	background-color: rgb(102,183,224);
-}
-.menuList li a:active{
-	background-color: rgb(102,183,224);
-}
-
 
 .menuList li:first-child{
 	width: 160px;
