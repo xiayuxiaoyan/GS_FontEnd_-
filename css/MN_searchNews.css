@@ -1,11 +1,14 @@
 .tb{
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
 }
 .tb th{
     height: 20px;
 }
 body{
-    background-color: #4dffd3;
+    /*background-color: #4dffd3;*/
     width:760px;
     height:600px;
+}
+table{
+	width: 95%;
 }

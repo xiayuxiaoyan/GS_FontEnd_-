@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>高思实验室首页</title>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <link  rel="stylesheet" type="text/css" href="css/setpage.css">
+    <link  rel="stylesheet" type="text/css" href="css/MJ_group.css">
+<body>
+<div>
+    <button >删除</button>
+    <!-- <button >添加</button> -->
+    <button >启用</button>
+    <button >禁用</button>
+<!--     <select>
+        <option>每页显示</option>
+        <option>每页显示10页</option>
+        <option>每页显示20页</option>
+        <option>每页显示30页</option>
+    </select> -->
+    <input >
+    <button type="submit">搜索</button>
+
+</div>
+<table class="tb" border="1"  cellpadding="10" cellspacing="0">
+    <tr>
+        <th class="check">
+            <input type="checkbox" id="selectAll" />
+        </th>
+        <th>
+            id
+        </th>
+        <th>
+             分组名
+        </th>
+        <th>
+             组长名
+        </th>
+        <th>
+            创建时间
+        </th>
+        <th>
+            状态
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    <br/>
+    <tr>
+        <td>
+            <input type="checkbox" name="ids" value="3990" />
+        </td>
+        <td>
+           1
+        </td>
+        <td>
+            FEP
+        </td>
+        <td>
+            关振宇
+        </td>
+        <td>
+            2013-10-1
+        </td>
+        <td>已启用</td>
+        <td>
+            <a href="">[编辑]</a>
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+<div id="setpage">
+<!--     <a href="">首页</a>&nbsp
+    <a href="">上一页</a>
+    <a href="">下一页</a>&nbsp
+    <a href="">尾页</a>&nbsp
+    <span>页次：</span>
+    <span>1/3</span>
+    <span>页</span>
+
+    <span>转到：</span>
+    <select>
+        <option>第1页</option>
+        <option>第2页</option>
+        <option>第3页</option>
+    </select> -->
+</div>
+<script type="text/javascript"src="js/setpage.js"></script>
+<script type="text/javascript">
+var groups;
+    function reloadpage(target)//target第几页
+   {
+     loadXMLDoc("url?page="+target,function()
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var item;
+                var jsonStr=xmlhttp.responseText;
+                groups=JSON.parse(jsonStr);
+                for(var i=0;i<groups.length;i++){
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990' /></td><td>"+groups[i].groupId+"</td><td>"+groups[i].groupName+"</td><td>"+groups[i].groupLeader+"</td><td>"+groups[i].createDate+"</td><td>已启用</td><td><a href=''>[编辑]</a></td></tr>"
+                }
+                $("table").prepend(item);
+             }
+        });
+   }
+
+setpage(); 
+</script>
+</body>
+</head>
+</html>

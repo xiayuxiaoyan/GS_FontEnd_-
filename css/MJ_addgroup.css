@@ -1,0 +1,28 @@
+
+body{
+    /*background-color: #4dffd3;*/
+    margin-top: 150px;
+    width:760px;
+    height:600px;
+}
+div{
+	margin-left: 200px;
+}
+input{
+	height: 34px;
+	border-radius: 3px;
+	border: 0px;
+}
+.ckbox{
+	vertical-align: middle;
+
+}
+button{
+	width: 60px;
+    border: 1px solid #357ebd;
+    cursor: pointer;
+    background-color: #428bca;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+}

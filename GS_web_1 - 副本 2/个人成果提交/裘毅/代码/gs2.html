@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>高思实验室</title>
+    <link href="my.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<div class="first">
+    <div class="nav">
+        <img class="logo" src="pic/logo.png">
+        <ul>
+            <li class="shadow"><a class="button" href="#">首页</a></li>
+            <li class="shadow"><a class="button" href="#about" onclick="click_scroll()">关于我们</a></li>
+            <li class="shadow"><a class="button" href="#">新闻公告</a></li>
+            <li class="shadow"><a class="button" href="#">实验室诚聘</a></li>
+        </ul>
+
+    </div>
+</div>
+<di  class="aboutUs">
+	<div class="about" id="about">
+ 	   <h1>关于我们</h1>
+	    <div class="line1">
+ 	       <img src="">
+ 	   </div>
+	    <div class="line2">
+	        
+	    </div>
+	
+	</div>
+	<div class="gruop">
+		
+	</div>
+	<div class="personself">
+		
+	</div>
+</div><!--end of aboutUs-->
+
+<script type="text/javascript">
+/*function click_scroll() {
+	var scroll_offset=document.getElementById("about").offsetTop;
+  //var scroll_offset = $("#about").offset();  //得到pos这个div层的offset，包含两个值，top和left
+ 	// b=document.getElementsByTagName("body");
+ 	// h=document.getElementsByTagName("html");
+ 	// b.style.transform="translate(0px,scroll_offset+'px')";
+ 	// b.scrollTop=scroll_offset;
+
+ 	$("body").animate({
+ 	 scrollTop:scroll_offset  //让body的scrollTop等于pos的top，就实现了滚动
+ 	 },500);
+ }*/
+	
+function click_scroll() {
+    var scroll_offset = $("#about").offset();  //得到pos这个div层的offset，包含两个值，top和left
+
+ 	$("body").animate({
+ 	 scrollTop:scroll_offset.top  //让body的scrollTop等于pos的top，就实现了滚动
+ 	 },500);
+ }
+</script>
+
+
+
+</body>
+</html>

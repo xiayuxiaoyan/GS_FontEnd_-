@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face
+{
+	font-family:"华文琥珀";
+	src:url(../font/STHUPO.TTF);
+}
+.newsBlock{
+	width: 300%;
+	height: 800px;
+	overflow: hidden;
+	display: block;
+	font-size:0px;
+}
+.newsList
+{
+	width:33.4%;
+	height:800px;
+	display: inline-block;
+    vertical-align: top;/*向上对齐*/
+	background-color:#3D3B3C;
+	overflow:hidden;
+	padding-top: 3%;
+	position: relative;
+}
+
+.container
+{
+	width:80%;
+	height:500px;
+	padding:5%;
+	border-style:solid;
+	border-color:#848583;
+	border-width:10px;
+	border-topradius:10px;
+	border-radius:10px;
+	border-top-style:none;
+	border-bottom-style:none;
+	margin-left: 50px;
+}
+.newsList .container p{
+	height: 40px;
+}
+
+.nlTitle
+{
+	float:left;
+	color:#848583;
+	font-size:20px;
+	margin-left: 120px;
+	text-decoration:none;
+	font-family:"华文琥珀";
+}
+
+.date
+{
+	float:right;
+	color:#848583;
+	font-size:20px;
+	margin-right: 120px;
+	text-decoration:none;
+	font-family:"华文琥珀";
+}
+
+.item
+{
+	alignment-adjust:central;
+}
+
+.page
+{
+	position:relative;
+	top:4%;
+	float:left;
+	text-align:center;
+	margin-left:300px;
+	margin-right:auto;
+}
+
+.pageNumber
+{
+	color:#848583;
+	font-size:22px;
+	text-decoration:none;
+	font-family:"华文琥珀";
+}
+
+/* .border1
+{
+	position:fixed;
+	float:left;
+}
+
+.border2
+{
+	float:right;
+} */
