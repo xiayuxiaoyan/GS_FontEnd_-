@@ -2,20 +2,21 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>高思实验室首页</title>
-
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <link  rel="stylesheet" type="text/css" href="css/setpage.css">
     <link  rel="stylesheet" type="text/css" href="css/MJ_group.css">
 <body>
 <div>
     <button >删除</button>
-    <button >添加</button>
+    <!-- <button >添加</button> -->
     <button >启用</button>
     <button >禁用</button>
-    <select>
+<!--     <select>
         <option>每页显示</option>
         <option>每页显示10页</option>
         <option>每页显示20页</option>
         <option>每页显示30页</option>
-    </select>
+    </select> -->
     <input >
     <button type="submit">搜索</button>
 
@@ -66,146 +67,12 @@
             <a href="">[编辑]</a>
         </td>
     </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3989" />
-        </td>
-        <td>
-          2
-        </td>
-        <td>
-            VLAB
-        </td>
-        <td>
-            刘文波
-        </td>
-        <td>
-            2013-9-1
-        </td>
-        <td>
-            已启用
-        </td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3988" />
-        </td>
-        <td>
-           3
-        </td>
-        <td>
-            FEP
-        </td>
-        <td>
-            周旋
-        </td>
-        <td>
-            2013-3-1
-        </td>
-        <td>
-            已启用
-        </td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3990" />
-        </td>
-        <td>
-           4
-        </td>
-        <td>
-            FEP
-        </td>
-        <td>
-            关振宇
-        </td>
-        <td>
-            2013-10-1
-        </td>
-        <td>已启用</td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3989" />
-        </td>
-        <td>
-         5
-        </td>
-        <td>
-            VLAB
-        </td>
-        <td>
-            刘文波
-        </td>
-        <td>
-            2013-9-1
-        </td>
-        <td>
-            已启用
-        </td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3988" />
-        </td>
-        <td>
-           6
-        </td>
-        <td>
-            FEP
-        </td>
-        <td>
-            周旋
-        </td>
 
-        <td>
-            2013-3-1
-        </td>
-        <td>
-            已启用
-        </td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3990" />
-        </td>
-        <td>
-          7
-        </td>
-        <td>
-            FEP
-        </td>
-        <td>
-            关振宇
-        </td>
-        <td>
-            2013-10-1
-        </td>
-        <td>已启用</td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
 
 </table>
 <br/>
-<div>
-    <a href="">首页</a>&nbsp
+<div id="setpage">
+<!--     <a href="">首页</a>&nbsp
     <a href="">上一页</a>
     <a href="">下一页</a>&nbsp
     <a href="">尾页</a>&nbsp
@@ -218,9 +85,30 @@
         <option>第1页</option>
         <option>第2页</option>
         <option>第3页</option>
-    </select>
+    </select> -->
 </div>
+<script type="text/javascript"src="js/setpage.js"></script>
+<script type="text/javascript">
+var groups;
+    function reloadpage(target)//target第几页
+   {
+     loadXMLDoc("url?page="+target,function()
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var item;
+                var jsonStr=xmlhttp.responseText;
+                groups=JSON.parse(jsonStr);
+                for(var i=0;i<groups.length;i++){
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990' /></td><td>"+groups[i].groupId+"</td><td>"+groups[i].groupName+"</td><td>"+groups[i].groupLeader+"</td><td>"+groups[i].createDate+"</td><td>已启用</td><td><a href=''>[编辑]</a></td></tr>"
+                }
+                $("table").prepend(item);
+             }
+        });
+   }
 
+setpage(); 
+</script>
 </body>
 </head>
 </html>

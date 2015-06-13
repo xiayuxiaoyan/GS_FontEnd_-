@@ -201,3 +201,15 @@ iframe{
 .applay{
     display: block;
 }
+#info{ 
+    color:#848583;
+    font-size:22px;
+    text-decoration:none;
+    font-family:"华文琥珀";
+} 
+.current{  
+    color:#27CBC7; 
+    font-size:22px;
+    text-decoration:none;
+    font-family:"华文琥珀";
+} 

@@ -46,7 +46,7 @@
 {
 	text-align:center;
 	color:#FEFCFC;
-	font-size:18px;
+	font-size:18px !important;
 	font-family:'myfont2';
 }
 

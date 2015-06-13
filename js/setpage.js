@@ -33,11 +33,11 @@ function setpage()
                     outstr = outstr + "<span class='current'>"+count+"</span>"; 
                 }                                       //是当前页则为该数字
             } 
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> next </a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> 下翻 </a>"; 
         } 
         else if(parseInt((cpage-1)/10) == parseInt(totalpage/10)) // 最后第一轮
         {                                     
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>previous</a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>上翻</a>"; 
             for (count=parseInt(totalpage/10)*10+1;count<=totalpage;count++) 
             {    if(count!=cpage) 
                 { 
@@ -49,7 +49,7 @@ function setpage()
         } 
         else 
         {     
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>previous</a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>上翻</a>"; 
             for (count=parseInt((cpage-1)/10)*10+1;count<=parseInt((cpage-1)/10)*10+10;count++) 
             {         
                 if(count!=cpage) 
@@ -59,7 +59,7 @@ function setpage()
                     outstr = outstr + "<span class='current'>"+count+"</span>"; 
                 } 
             } 
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> next </a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> 下翻 </a>"; 
         } 
     }     
     document.getElementById("setpage").innerHTML = "<div id='setpage'><span id='info'>共"+totalpage+"页|第"+cpage+"页<\/span>" + outstr + "<\/div>"; 
@@ -83,17 +83,5 @@ function loadXMLDoc(url,cfunc)
    xmlhttp.open("GET",url,true);
    xmlhttp.send();
 }
-function reloadpage(target)
-   {
-     loadXMLDoc("/ajax/test1.txt",function()
-        {
-          if (xmlhttp.readyState==4 && xmlhttp.status==200)
-             {
-                  document.getElementById("XXX").innerHTML=xmlhttp.responseText;
-             }
-        });
-   }
-
-
-setpage();    //调用分页 
+   //调用分页 
 //--> 

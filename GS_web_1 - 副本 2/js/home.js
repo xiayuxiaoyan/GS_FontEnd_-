@@ -12,16 +12,17 @@
  	 },500);
  }*/
 
-var groupName;  //组名
 var imgArray ;   //取得的user对象  
 var newsName;	//新闻名字
 var firstWidth ; 
 var secondWidth;
 $(document).ready(function(){
 /* **********************************滚动一定距离中心滑轮********************************/
+
 var blockIdArray=["#first","#about","#news","#employ"];
 window.location.hash=blockIdArray[0];
-function getBlockId(){				//获得当先块id的下标
+
+function getBlockId(){				//获得当前块id的下标
 	var nowId=window.location.hash;
 	for(var i=0;i<blockIdArray.length;i++){
 		if(nowId == blockIdArray[i])
@@ -70,16 +71,23 @@ var scrollFunc = function (e) {
     document.onmousewheel = scrollFunc; 
 /////////////////////////////////////////////////////////////////////////////////
 
-function createRequest(){  //创建ajax请求
-	var request;
-	if(window.XMLHttpRequest){
-		request = new XMLHttpRequest();
-		return request;
-	}else{
-		request = new ActiveXObject("Microsoft.XMLHTTP");
-		return request;
-	}
+var xmlhttp;/////////////////////////////////封装ajax
+function loadXMLDoc(url,cfunc)
+{
+   if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+      }
+   else
+       {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+   xmlhttp.onreadystatechange=cfunc;
+   xmlhttp.open("GET",url,true);
+   xmlhttp.send(null);
 }
+
+
 function loadImage (urlArray) {   //异步加载图片
 	var imgArrays = document.getElementsByClassName("memberPhoto");
 	var personNames=document.getElementsByClassName("nameStyle");
@@ -92,53 +100,58 @@ function loadImage (urlArray) {   //异步加载图片
 	}
 
 }
+function loadImgList(groupName) //发送请求  动态加载组员图片列表  分页
+   {
+     loadXMLDoc(groupName+"?"+encodeURIComponent("groupName=")+encodeURIComponent(groupName),function()
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var jsonStr=request.responseText;
+                imgArray=JSON.parse(jsonStr);
+                loadImage(imgArray) ; //预加载图片并显示/////////////待更改                
+             }
+        });
+ } 
+ function loadNewsList(num) //请求初始部分新闻列表
+   {
+     loadXMLDoc("news"+"?"+encodeURIComponent("newsNumber=")+encodeURIComponent(num),function()
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+            var jsonStr=request.responseText;
+            var newsArray=JSON.parse(jsonStr);
+            var fnewsNameList;
+            var fnewsDateList;
+            for(var i=0;i<num;i++){
+                fnewsNameList +="<a class='newsDetail' href=''>"+newsArray[i].newsName+"</a><br>";
+                fnewsDateList +=newsArray[i].publishDate+"<br>";
+            }
+            $(".leftContent p").append(fnewsNameList);
+            $(".rightContent p").append(fnewsDateList)
+                
+             }
+        });
+ } 
 
-function sendImgRequest(){
-	                       //发送请求  动态加载组员图片列表  分页
-	var request ; //ajax请求
- 	request = createRequest();
- 	request.onreadystatechange=function(){
- 		if(request.readyState==4){
- 			if((request.status>=200&&request.status<=300)||request.status==304){
- 				var jsonStr=request.responseText;
- 				imgArray=JSON.parse(jsonStr);
- 				loadImage (imgArray) ; //预加载图片并显示
- 				/*for(var i=0;i<imgArray.length;i++){                           //显示图片
-    				$(".photoBackground .memberPhoto").eq(i).attr("src",imgArray[i]);
-    			}*/
 
- 			}else{
- 				alert("2请求失败");
- 			}
- 		}
- 	}
-	var url=groupName+"?"+encodeURIComponent("groupName=")+encodeURIComponent(groupName);  //编辑url
- 	request.open("get",url,true);
- 	request.send(null);
-
-}
-/******************************加载新闻异步****************************************/
-function sendNewsListRequest(){
+function loadNewsContent(newsName) //请求新闻内容
+   {
+     loadXMLDoc("news_content?"+encodeURIComponent("newsName=")+encodeURIComponent(newsName),function()
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var jsonStr=xmlhttp.responseText;
+                var newsDetail=JSON.parse(jsonStr);
+                $(".newsName").text(newsDetail.newsName);
+                $(".ncDate").text(newsDetail.publishDate);
+                $(".article").append(newsDetail[content]);///////////////待更改
+                
+             }
+        });
+ } 
+              
 var num=9;//首页显示的条数
-var newsRequest = createRequest();
-newsRequest.onreadystatechange=function(){
-	if(newsRequest.readyState==4){
-		if((newsRequest.status>=200 && newsRequest.status<=300)||newsRequest.status==304){
-			var jsonStr=request.responseText;
- 			var newsArray=JSON.parse(jsonStr);
-			for(var i=0;i<num;i++){
-				$(".leftContent .newsDetail").text(newsArray[i].newsName);
-			}
-
-		}else{
-			alert("请求失败");
-		}
-	}
-}
-var url = "news"+"?"+encodeURIComponent("newsNumber=")+encodeURIComponent(num);
-newsRequest.open("get",url,true);
-newsRequest.send(null);
-}
+///loadNewsList(num);//初始加载新闻列表???????????????
 
 /******************************上下滑动效果***************************/
 $(".shadow .button").click(function () {	//上下滑动效果
@@ -153,11 +166,11 @@ $(".shadow .button").click(function () {	//上下滑动效果
 
 $(".photoLink").click(function(){  //点击组的图片
 
-	groupName = $(this).attr("id"); 
+	var groupName = $(this).attr("id"); 
 	var $groupImg=$(".groupName");
 	var url="images/"+ groupName +".png";
 	$groupImg.attr("src",url);
-/*****************************左右滚动*************************************/
+        /*****************************左右滚动*************************************/
 
 	firstWidth=$(".about").width();
 	secondWidth =$(".group").width();
@@ -172,7 +185,7 @@ $(".photoLink").click(function(){  //点击组的图片
 
     //var imgArray = ["images/GCL.jpg","images/GZY.jpg","images/HG.jpg","images/HMC.jpg","images/LDS.jpg","images/MYW.jpg","images/ZH.jpg","images/ZK.png","images/ZX.png"];
 	/*****************************异步加载图片***************************/
-//	sendImgRequest();
+	// loadImgList(groupName); ?????????????????
 	return false;
 });
 $(".memberPhoto").click(function(){      //点几个人照片，战士个人详细信息
@@ -209,28 +222,32 @@ $(".more").click(function(){		//查看更多条新闻
 	$(".shadow .button").click(function () {	//返回首页显示滚动条
 		$("body").css("overflow-y","auto");
 	});
+   /// setpage();//动态设置加载新闻列表和翻页具体见setpage.js????????
 	return false;
 });
- $(".newsDetail").click(function(){  //查看新闻具体内容
+
+
+
+$(".newsDetail").click(function(){  //查看新闻具体内容
 	firstWidth = $(".news").width();
 	secondWidth =$(".newsList").width();
 	newsName=$(this).text();
  	$("body").animate({
  	 scrollLeft:(firstWidth+secondWidth+15)  //让body的scrollTop等于pos的top，就实现了滚动
  	 },500);
-/*****************************ajax获取新闻内容****************************************/
- 	$(".newsName").text(newsArray[i].newsName);
- 	$(".ncDate").text(newsArray[i].publishDate)
-
+    /*****************************ajax获取新闻内容****************************************/
+    var newsName=$(this).text();
+  // /  loadNewsContent(newsName);??????????????????????????
 
  	$("body").css("overflow-y","hidden");//隐藏导航条
 	$(".shadow .button").click(function () {	//返回首页显示滚动条
 		$("body").css("overflow-y","auto");
 	});
-return false;
+    return false;
  });
- 
- $(".pic1").click(function(){
+
+ /******************************返回按钮来回滚动**************************/
+ $(".pic1").click(function(){       
 	firstWidth=$(".about").width();
 	secondWidth =$(".group").width();
  	$("body").animate({
@@ -259,6 +276,7 @@ return false;
  	 },500); 	
 	$("body").css("overflow-y","auto");
  });
+
  //sendNewsListRequest();  //加载首页新闻列表
 
 });
