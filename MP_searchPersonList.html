@@ -97,13 +97,18 @@
 
 <script type="text/javascript"src="js/setpage.js"></script>
 <script type="text/javascript">
+var users;
+    function reloadpage(target)//target第几页
    {
+     loadXMLDoc("url?page="+target,function()
         {
           if (xmlhttp.readyState==4 && xmlhttp.status==200)
              {
                 var item;
                 var jsonStr=xmlhttp.responseText;
+                users=JSON.parse(jsonStr);
                 for(var i=0;i<user.length;i++){
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990'/></td><td>"+users[i].studentId+"</td><td>"+users[i].userName+"</td><td>"+users[i].groupName+"</td><td>"+users[i].email+"</td><td>"+users[i].createDate+"</td>td>已启用</td><td><a href='view.jhtml?id=3990'>[查看]</a></td></tr>"
                 }
                 $("table").prepend(item);
              }
