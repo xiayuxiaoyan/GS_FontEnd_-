@@ -1,6 +1,10 @@
 
 body{
-    background-color: #4dffd3;
+    /*background-color: #4dffd3;*/
     width:760px;
     height:600px;
+}
+div>iframe ,textareaa
+{
+	background:#fff;
 }
