@@ -8,7 +8,7 @@ function gotopage(target)
 {     
     cpage = target;        //把页面计数定位到第几页 
     setpage(); 
-    //reloadpage(target);    //调用显示页面函数显示第几页,这个功能是用在页面内容用ajax载入的情况 
+    reloadpage(target);    //调用显示页面函数显示第几页,这个功能是用在页面内容用ajax载入的情况 
 } 
 function setpage() 
 { 

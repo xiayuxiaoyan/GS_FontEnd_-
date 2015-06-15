@@ -6,8 +6,35 @@
     <link  rel="stylesheet" type="text/css" href="css/setpage.css">
     <link  rel="stylesheet" type="text/css" href="css/MJ_group.css">
 <body>
+<script type="text/javascript">
+function delPerson(){
+    // if($(".checkbox").checkeb)
+    var checkboxs=document.getElementsByClassName("checkbox");
+    var studentId;
+    for(var i=0;i<checkboxs.length;i++){
+        if(checkboxs[i].checked){
+           // alert(checkboxs[i].parentNode.parentNode.childNodes.item(0).childNodes.item(0).nodeValue="1")
+          groupId=checkboxs[i].parentNode.nextSibling.innerHTML;
+        }
+    }
+
+     loadXMLDoc("url?groupId="+groupId,function()// 传过去被删除组的id，要求后台重新传回当页新的数据
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var item;
+                var jsonStr=xmlhttp.responseText;
+                groups=JSON.parse(jsonStr);
+                for(var i=0;i<groups.length;i++){
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990'class="checkbox" /></td><td>"+groups[i].groupId+"</td><td>"+groups[i].groupName+"</td><td>"+groups[i].groupLeader+"</td><td>"+groups[i].createDate+"</td><td>已启用</td><td><a href=''>[编辑]</a></td></tr>"
+                }
+                $("table").prepend(item);
+             }
+        });
+}
+</script>
 <div>
-    <button >删除</button>
+    <button onclick="delPerson()" >删除</button>
     <!-- <button >添加</button> -->
     <button >启用</button>
     <button >禁用</button>
@@ -24,7 +51,7 @@
 <table class="tb" border="1"  cellpadding="10" cellspacing="0">
     <tr>
         <th class="check">
-            <input type="checkbox" id="selectAll" />
+            选择
         </th>
         <th>
             id
@@ -46,27 +73,7 @@
         </th>
     </tr>
     <br/>
-    <tr>
-        <td>
-            <input type="checkbox" name="ids" value="3990" />
-        </td>
-        <td>
-           1
-        </td>
-        <td>
-            FEP
-        </td>
-        <td>
-            关振宇
-        </td>
-        <td>
-            2013-10-1
-        </td>
-        <td>已启用</td>
-        <td>
-            <a href="">[编辑]</a>
-        </td>
-    </tr>
+<tr><td><input type="checkbox" name="ids" value="3990"class="checkbox" /></td><td> 1</td><td> FEP</td><td> 关振宇</td><td> 2013-10-1</td><td>已启用</td><td><a href="">[编辑]</a></td></tr>
 
 
 </table>
@@ -100,7 +107,7 @@ var groups;
                 var jsonStr=xmlhttp.responseText;
                 groups=JSON.parse(jsonStr);
                 for(var i=0;i<groups.length;i++){
-                    item+="<tr><td><input type='checkbox' name='ids' value='3990' /></td><td>"+groups[i].groupId+"</td><td>"+groups[i].groupName+"</td><td>"+groups[i].groupLeader+"</td><td>"+groups[i].createDate+"</td><td>已启用</td><td><a href=''>[编辑]</a></td></tr>"
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990'class="checkbox" /></td><td>"+groups[i].groupId+"</td><td>"+groups[i].groupName+"</td><td>"+groups[i].groupLeader+"</td><td>"+groups[i].createDate+"</td><td>已启用</td><td><a href=''>[编辑]</a></td></tr>"
                 }
                 $("table").prepend(item);
              }

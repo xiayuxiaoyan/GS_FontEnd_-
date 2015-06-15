@@ -6,8 +6,35 @@
     <link  rel="stylesheet" type="text/css" href="css/MP_searchPersonList.css">
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <body>
+<script type="text/javascript">
+function delPerson(){
+    // if($(".checkbox").checkeb)
+    var checkboxs=document.getElementsByClassName("checkbox");
+    var studentId;
+    for(var i=0;i<checkboxs.length;i++){
+        if(checkboxs[i].checked){
+           // alert(checkboxs[i].parentNode.parentNode.childNodes.item(0).childNodes.item(0).nodeValue="1")
+          studentId=checkboxs[i].parentNode.nextSibling.innerHTML;
+        }
+    }
+
+     loadXMLDoc("url?studentId="+studentId,function()// 传过去被删除学生的id，要求后台重新传回当页新的数据
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+             {
+                var item;
+                var jsonStr=xmlhttp.responseText;
+                users=JSON.parse(jsonStr);
+                for(var i=0;i<user.length;i++){
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990'class="checkbox"/></td><td>"+users[i].studentId+"</td><td>"+users[i].userName+"</td><td>"+users[i].groupName+"</td><td>"+users[i].email+"</td><td>"+users[i].createDate+"</td>td>已启用</td><td><a href='MP_PersonDetails.html'>[查看]</a></td></tr>"
+                }
+                $("table").prepend(item);
+             }
+        });
+}
+</script>
 <div>
-    <button onclick="delPerson()">删除</button>
+    <button onclick="delPerson()" >删除</button>
 <!--     <button >添加</button> -->
     <button >启用</button>
     <button >禁用</button>
@@ -24,7 +51,7 @@
 <table class="tb" border="1"  cellpadding="10" cellspacing="0">
         <tr>
             <th class="check">
-                <input type="checkbox" id="selectAll" />
+               选择
             </th>
             <th>
                 学号
@@ -49,30 +76,7 @@
             </th>
         </tr>
         <br/>
-        <tr>
-            <td>
-                <input type="checkbox" name="ids" value="3990" />
-            </td>
-            <td>
-                Guangzhenyu
-            </td>
-            <td>
-                关振宇
-            </td>
-            <td>
-                FEP
-            </td>
-            <td>
-                1@qq.com
-            </td>
-            <td>
-                2013-10-1
-            </td>
-            <td>已启用</td>
-            <td>
-                <a href="view.jhtml?id=3990">[查看]</a>
-            </td>
-        </tr>
+       <tr><td><input type="checkbox" name="ids" value="3990" class="checkbox" /></td><td> Guangzhenyu</td><td> 关振宇</td><td> FEP</td><td> 1@qq.com</td><td> 2013-10-1</td><td>已启用</td><td><a href="MP_PersonDetails.html">[查看]</a></td></tr>
 
 
     </table>
@@ -108,7 +112,7 @@ var users;
                 var jsonStr=xmlhttp.responseText;
                 users=JSON.parse(jsonStr);
                 for(var i=0;i<user.length;i++){
-                    item+="<tr><td><input type='checkbox' name='ids' value='3990'/></td><td>"+users[i].studentId+"</td><td>"+users[i].userName+"</td><td>"+users[i].groupName+"</td><td>"+users[i].email+"</td><td>"+users[i].createDate+"</td>td>已启用</td><td><a href='view.jhtml?id=3990'>[查看]</a></td></tr>"
+                    item+="<tr><td><input type='checkbox' name='ids' value='3990'class="checkbox"/></td><td>"+users[i].studentId+"</td><td>"+users[i].userName+"</td><td>"+users[i].groupName+"</td><td>"+users[i].email+"</td><td>"+users[i].createDate+"</td>td>已启用</td><td><a href='MP_PersonDetails.html'>[查看]</a></td></tr>"
                 }
                 $("table").prepend(item);
              }
@@ -117,9 +121,6 @@ var users;
 
 setpage(); 
 
-function delPerson(){
-    if()
-}
 </script>
 
 </body>

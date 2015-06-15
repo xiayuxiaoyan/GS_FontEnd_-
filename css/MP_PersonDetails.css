@@ -1,53 +1,15 @@
-#addperson{
-	background-color:white;
-	width:760px;
-	height: 600px;
-	margin:auto;
-	border:blue solid thin;
+body{
+   width: 760px;
+   height: 600px;
+   margin-top: 100px;
 }
-#top1{
-   background-color: white;
-   margin-bottom: 50px;
-   border:white solid thin;
-   outline-style:none;
-   outline-width:thin;
-   font-weight: bold;
-   float: left;
-   font-size: 25px;
-   font-family:"Times New Roman",Georgia,Serif
+.addPerson{
+ width: auto;
+ height: auto;
 }
-#top2{
-   float: left;
-   background-color: white;
-   margin-bottom: 50px;
-   border:#FFF000 solid thin;
-   outline-style:solid;
-   outline-width:thin;
-   font-weight: 900;
-   font-size: 25px;
-   font-family:"Times New Roman",Georgia,Serif;
-   font-style:italic;
+.addPerson p{
+   margin-left: 200px;
 }
-#bodyl{
-	clear: both;
-	float: left;
-	margin-top: 10px;
-	background-color: white;
-	width: 380px; 
-	margin-bottom: 100px;
+.addPerson span {
+   margin-right: 100px;
 }
-#bodyr{
-	background-color: white;
-	width: 380px;
-	float:right;
-	margin-bottom: 100px;
-	margin-top:10px;
-}
-#buttom{
-	clear: both;
-	margin-left: 300px;
-}
-a:link {text-decoration:none;color: white;}
-a:visited {text-decoration:none;}
-a:hover {text-decoration:underline;}
-a:active {text-decoration:underline;}
